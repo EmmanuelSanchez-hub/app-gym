@@ -1,0 +1,32 @@
+
+.dashboard,
+.clientes-content,
+.suscripciones-content,
+.register-page
+{
+  padding: 2rem 2rem 2rem 10rem;
+  margin-left: 4rem;
+}
+
+body {
+  background: #1a1f2b;            
+  color: white;
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+}
+
+@media (width < 580px) {
+
+  .dashboard,
+  .suscripciones-content,
+  .register-page
+  {
+    padding: 2rem 2rem 2rem 2rem;
+  }
+
+  .clientes-content
+  {
+    padding: 2rem 2rem 2rem 2rem;
+    margin-left: 3rem;
+  }
+}

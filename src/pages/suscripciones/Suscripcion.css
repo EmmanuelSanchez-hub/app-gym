@@ -1,0 +1,234 @@
+/* ====== CONTENEDOR ====== */
+.form-suscripcion {
+    background: #1a1f2b;
+    border: 1px solid rgba(255, 255, 255, .06);
+    border-radius: 16px;
+    padding: 18px;
+    color: #e8eaf6;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, .25);
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 12px;
+    margin: 15px 0 20px;
+    position: relative;
+}
+
+.form-suscripcion h3 {
+    grid-column: 1 / -1;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 4px;
+}
+
+/* ====== CAMPOS ====== */
+.form-suscripcion .input-text,
+.form-suscripcion .input-select {
+    width: 100%;
+    height: 44px;
+    padding: 0 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, .08);
+    background: #0f1420;
+    color: #e9ecf4;
+    outline: none;
+    transition: border .2s, box-shadow .2s, background .2s;
+}
+
+.form-suscripcion .input-text::placeholder {
+    color: #9aa3b2;
+}
+
+.form-suscripcion .input-text:focus,
+.form-suscripcion .input-select:focus {
+    border-color: #8b5cf6;
+    /* violeta */
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, .18);
+    background: #0c111a;
+}
+
+/* Distribución: buscador y lista ocupan ancho completo */
+.form-suscripcion input[type="text"] {
+    grid-column: 1 / -1;
+}
+
+.form-suscripcion .resultados-clientes {
+    grid-column: 1 / -1;
+}
+
+.form-suscripcion .cliente-elegido {
+    grid-column: 1 / -1;
+}
+
+/* Fecha fin (solo lectura) */
+.form-suscripcion input[disabled] {
+    opacity: .75;
+    cursor: not-allowed;
+    background: #0c111a;
+    border-style: dashed;
+}
+
+/* ====== LISTA DE RESULTADOS (buscador) ====== */
+.form-suscripcion .resultados-clientes {
+    list-style: none;
+    margin: -4px 0 6px;
+    padding: 6px;
+    background: #0c1325;
+    border: 1px solid rgba(255, 255, 255, .08);
+    border-radius: 12px;
+    max-height: 220px;
+    overflow-y: auto;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, .25);
+}
+
+.form-suscripcion .resultado-item {
+    padding: 10px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #e8eaf6;
+    transition: background .15s ease, transform .06s ease;
+}
+
+.form-suscripcion .resultado-item:hover {
+    background: rgba(139, 92, 246, .15);
+}
+
+.form-suscripcion .cliente-elegido {
+    margin-top: -2px;
+    color: #cfd7ff;
+    font-size: .95rem;
+}
+
+/* ====== BOTÓN GUARDAR ====== */
+.form-suscripcion .btn-submit {
+    grid-column: 1 / -1;
+    height: 46px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, .08);
+    background: linear-gradient(135deg, #8b5cf6, #1d9bf0);
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: .2px;
+    cursor: pointer;
+    transition: transform .06s ease, filter .2s ease, box-shadow .2s ease;
+    box-shadow: 0 10px 20px rgba(29, 155, 240, .18);
+}
+
+.form-suscripcion .btn-submit:hover {
+    filter: brightness(1.05);
+    box-shadow: 0 12px 26px rgba(29, 155, 240, .28);
+}
+
+.form-suscripcion .btn-submit:active {
+    transform: translateY(1px);
+}
+
+/* ====== CONTENEDOR ====== */
+.suscripciones-content {
+    background: transparent;
+    border: none;
+    padding: 18px;
+    margin: 10px;
+}
+
+/* Título */
+.suscripciones-content h2 {
+    margin: 0 0 10px 0;
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: .2px;
+}
+
+/* Separador */
+.suscripciones-content hr {
+    border: 0;
+    height: 1px;
+    margin: 14px 0 12px;
+    background: linear-gradient(90deg, rgba(139, 92, 246, .35), rgba(29, 155, 240, .35));
+}
+
+/* ====== BUSCADOR ====== */
+.suscripciones-content .input-text {
+    width: 100%;
+    height: 44px;
+    padding: 0 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, .08);
+    background: #0f1420;
+    color: #e9ecf4;
+    outline: none;
+    transition: border .2s, box-shadow .2s, background .2s;
+    margin: 10px 0 6px;
+}
+
+.suscripciones-content .input-text::placeholder {
+    color: #9aa3b2;
+}
+
+.suscripciones-content .input-text:focus {
+    border-color: #8b5cf6;
+    /* violeta */
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, .18);
+    background: #0c111a;
+}
+
+/* ====== LISTA DE TARJETAS ====== */
+.suscripciones-content .suscripciones-lista {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(260px, 1fr));
+    /* 3 columnas desktop */
+    gap: 14px;
+    margin-top: 12px;
+}
+
+/* Mensajes */
+.suscripciones-content p {
+    color: #cfd7ff;
+    background: #0c1325;
+    border: 1px solid rgba(255, 255, 255, .06);
+    border-radius: 12px;
+    padding: 10px 12px;
+    display: inline-block;
+}
+
+/* ====== RESPONSIVE ====== */
+/* ≥1024px: 3 columnas (default) */
+@media (max-width: 1024px) {
+    .form-suscripcion {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        /* 2 columnas */
+    }
+
+    .suscripciones-content .suscripciones-lista {
+        grid-template-columns: repeat(2, minmax(240px, 1fr));
+        /* 2 columnas */
+    }
+}
+
+@media (max-width: 640px) {
+    .form-suscripcion {
+        grid-template-columns: 1fr;
+        /* 1 columna */
+        gap: 10px;
+    }
+
+    .form-suscripcion .btn-submit {
+        width: 100%;
+    }
+
+    .suscripciones-content {
+        padding: 14px;
+        margin: 12px;
+    }
+
+    .suscripciones-content h2 {
+        font-size: 1.15rem;
+    }
+
+    .suscripciones-content .suscripciones-lista {
+        grid-template-columns: 1fr;
+        /* 1 columna */
+        gap: 12px;
+    }
+}

@@ -1,0 +1,127 @@
+.card-suscripcion {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  background: #07182E;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 20px;
+  padding: 1.2rem;
+  color: white;
+  margin: 1rem auto;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+/* Borde animado */
+.card-suscripcion::before {
+  content: '';
+  position: absolute;
+  width: 120px;
+  height: 160%;
+  background-image: linear-gradient(180deg, rgb(0, 183, 255), rgb(255, 48, 255));
+  animation: rotBGimg 3.5s linear infinite;
+  transition: all 0.2s linear;
+  z-index: 0;
+}
+
+/* Fondo interno */
+.card-suscripcion::after {
+  content: '';
+  position: absolute;
+  background: #07182E;
+  inset: 5px;
+  border-radius: 15px;
+  z-index: 1;
+}
+
+/* Contenido por encima del fondo */
+.card-suscripcion * {
+  z-index: 2;
+  position: relative;
+}
+
+/* Animación de borde */
+@keyframes rotBGimg {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Tipografía */
+.card h4 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.card p {
+  font-size: 0.95rem;
+  margin: 0.2rem 0;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* Botones */
+.cliente-botones {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: center;
+  width: 100%;
+}
+
+.cliente-botones button {
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  color: white;
+}
+
+.btn-editar {
+  background-color: #3498db;
+}
+
+.btn-editar:hover {
+  background-color: #2980b9;
+}
+
+.btn-estado {
+  background-color: #e67e22;
+}
+
+.btn-estado:hover {
+  background-color: #d35400;
+}
+
+/* Responsividad */
+@media (max-width: 600px) {
+  .card {
+    max-width: 90%;
+    padding: 1rem;
+  }
+
+  .card h4 {
+    font-size: 1.1rem;
+  }
+
+  .card p {
+    font-size: 0.9rem;
+  }
+
+  .cliente-botones button {
+    font-size: 0.85rem;
+    padding: 0.35rem 0.7rem;
+  }
+}

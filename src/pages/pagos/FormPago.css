@@ -1,0 +1,135 @@
+/* ====== SOLO para el formulario de pagos ====== */
+.form-pago {
+  /* tokens locales (scoped) */
+  --bg: #ffffff;
+  --card: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --focus: #2563eb;
+  --primary: #111827;
+  --primary-text: #ffffff;
+
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px;
+  display: grid;
+  gap: 12px;
+  box-shadow: 0 4px 16px rgba(17, 24, 39, 0.06);
+}
+
+@media (prefers-color-scheme: dark) {
+  .form-pago {
+    --bg: #0b0f1a;
+    --card: #0f172a;
+    --text: #e5e7eb;
+    --muted: #9ca3af;
+    --border: #243041;
+    --focus: #60a5fa;
+    --primary: #e5e7eb;
+    --primary-text: #0b0f1a;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  }
+}
+
+.form-pago h3 {
+  margin: 0 0 6px 0;
+  font-size: 18px;
+  line-height: 1.2;
+  letter-spacing: 0.2px;
+}
+
+/* Inputs y selects dentro del form */
+.form-pago .input-text,
+.form-pago .input-select {
+  width: 100%;
+  appearance: none;
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 14px;
+  line-height: 1.4;
+  transition: border-color .15s ease, box-shadow .15s ease, background .15s ease;
+  min-height: 40px;
+}
+
+.form-pago .input-text::placeholder {
+  color: var(--muted);
+}
+
+.form-pago .input-text:focus,
+.form-pago .input-select:focus {
+  outline: none;
+  border-color: var(--focus);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--focus) 25%, transparent);
+}
+
+/* Botón de enviar */
+.form-pago .btn-submit {
+  background: var(--primary);
+  color: var(--primary-text);
+  border: 1px solid var(--primary);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: transform .05s ease, box-shadow .15s ease, background .15s ease;
+}
+
+.form-pago .btn-submit:hover {
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+  background: color-mix(in srgb, var(--primary) 92%, black 8%);
+}
+
+.form-pago .btn-submit:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.form-pago .btn-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Helpers opcionales locales */
+.form-pago .help {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.form-pago .error {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+  padding: 8px 10px;
+  border-radius: 10px;
+  font-size: 13px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .form-pago .error {
+    background: #7f1d1d33;
+    color: #fecaca;
+    border-color: #7f1d1d;
+  }
+}
+
+/* Layout responsive solo del form */
+@media (min-width: 640px) {
+  .form-pago {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .form-pago h3 {
+    grid-column: 1 / -1;
+  }
+  .form-pago .btn-submit {
+    justify-self: end;
+    grid-column: 2 / 3;
+  }
+}

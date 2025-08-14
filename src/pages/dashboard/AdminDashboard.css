@@ -1,0 +1,215 @@
+/* ====== LAYOUT GENERAL DEL DASHBOARD ====== */
+.dashboard-page {
+  min-height: 100vh;
+  background: radial-gradient(800px 400px at 20% -10%, rgba(139,92,246,.10), transparent 60%),
+              radial-gradient(900px 500px at 110% 10%, rgba(29,155,240,.10), transparent 70%),
+              #0f1115;
+}
+
+/* Sidebar es fixed (200px). Empujamos el contenido. */
+#dashboard.dashboard {
+  margin-left: 200px;
+  padding: 24px;
+  color: #e6e9f2;
+}
+
+/* Responsive: cuando tu sidebar colapsa a 72px */
+@media (max-width: 580px) {
+  #dashboard.dashboard {
+    margin-left: 72px;
+    padding: 18px;
+  }
+}
+
+/* ====== CABECERA + MÉTRICAS ====== */
+#dashboard .dashboard-header {
+  background: #1a1f2b;
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: 16px;
+  padding: 18px 18px 12px;
+  box-shadow: 0 10px 24px rgba(0,0,0,.25);
+  margin-bottom: 18px;
+  position: relative;
+  overflow: hidden;
+}
+
+#dashboard .dashboard-header::after {
+  content: "";
+  position: absolute;
+  top: -100px; right: -120px;
+  width: 220px; height: 220px;
+  background: radial-gradient(110px 110px at center, rgba(139,92,246,.20), transparent 60%);
+  filter: blur(10px);
+  pointer-events: none;
+}
+
+#dashboard .dashboard-header h2 {
+  margin: 0 0 4px 0;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: .2px;
+}
+
+#dashboard .dashboard-header p {
+  margin: 0 0 12px 0;
+  color: #cdd3e6;
+  font-size: .95rem;
+}
+
+/* GRID DE MÉTRICAS */
+#dashboard .dashboard-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+#dashboard .metric-card {
+  background: #0f1420;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 14px;
+  padding: 14px 12px;
+  color: #e6e9f2;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 18px rgba(0,0,0,.22);
+  transition: transform .06s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+/* Línea de acento a la izquierda */
+#dashboard .metric-card::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0;
+  width: 4px; height: 100%;
+  background: linear-gradient(180deg, #8b5cf6, #1d9bf0);
+  opacity: .9;
+}
+
+#dashboard .metric-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px rgba(0,0,0,.30);
+  border-color: rgba(139,92,246,.35);
+}
+
+/* ====== SECCIONES LISTADAS ====== */
+#dashboard .dashboard-section {
+  background: #1a1f2b;
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 10px 24px rgba(0,0,0,.25);
+  margin-bottom: 16px;
+}
+
+#dashboard .dashboard-section h3 {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  margin: 0 0 10px 0;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: .2px;
+  padding-bottom: 6px;
+  border-bottom: 1px dashed rgba(255,255,255,.08);
+}
+
+/* Listas limpias y legibles */
+#dashboard .dashboard-section ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#dashboard .dashboard-section li {
+  padding: 10px 8px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  color: #dfe5fb;
+  transition: background .15s ease;
+}
+
+#dashboard .dashboard-section li + li {
+  margin-top: 6px;
+}
+
+#dashboard .dashboard-section li:hover {
+  background: rgba(139,92,246,.12);
+}
+
+/* Etiquetas opcionales (por si quieres añadir chips de estado) */
+#dashboard .chip {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: .78rem;
+  border: 1px solid rgba(255,255,255,.12);
+  background: #0f1420;
+  color: #cfd7ff;
+}
+
+/* Variantes chip */
+#dashboard .chip--ok {
+  border-color: rgba(125, 255, 196, .25);
+  color: #7dffc4;
+}
+#dashboard .chip--warn {
+  border-color: rgba(255, 207, 110, .25);
+  color: #ffcf6e;
+}
+#dashboard .chip--bad {
+  border-color: rgba(255, 132, 132, .25);
+  color: #ff8484;
+}
+
+/* ====== TEXTOS AUX ====== */
+#dashboard .empty,
+#dashboard .loading {
+  display: inline-block;
+  padding: 10px 12px;
+  background: #0c1325;
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: 12px;
+  color: #cfd7ff;
+}
+
+/* ====== SCROLL Y CONTENEDOR ====== */
+#dashboard {
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(139,92,246,.5) transparent;
+}
+#dashboard::-webkit-scrollbar {
+  width: 10px;
+}
+#dashboard::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(139,92,246,.65), rgba(29,155,240,.65));
+  border-radius: 8px;
+}
+#dashboard::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ====== PEQUEÑAS ADAPTACIONES ====== */
+@media (max-width: 960px) {
+  #dashboard .dashboard-header {
+    padding: 16px;
+  }
+  #dashboard .dashboard-section {
+    padding: 14px;
+  }
+}
+
+@media (max-width: 640px) {
+  #dashboard .dashboard-header h2 {
+    font-size: 1.35rem;
+  }
+  #dashboard .dashboard-section h3 {
+    font-size: 1rem;
+  }
+}

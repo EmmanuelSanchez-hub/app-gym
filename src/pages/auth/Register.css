@@ -1,0 +1,130 @@
+/* ====== SOLO para la sección de registro ====== */
+.registrer-content {
+  /* Tokens locales de color */
+  --rc-bg: #ffffff;
+  --rc-card: #ffffff;
+  --rc-text: #111827;
+  --rc-muted: #6b7280;
+  --rc-border: #e5e7eb;
+  --rc-focus: #2563eb;
+  --rc-primary: #111827;
+  --rc-primary-text: #ffffff;
+
+  background: var(--rc-card);
+  color: var(--rc-text);
+  border: 1px solid var(--rc-border);
+  border-radius: 14px;
+  padding: 16px;
+  margin: 16px;
+  box-shadow: 0 4px 16px rgba(17, 24, 39, 0.06);
+
+  display: grid;
+  gap: 14px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .registrer-content {
+    --rc-bg: #0b0f1a;
+    --rc-card: #0f172a;
+    --rc-text: #e5e7eb;
+    --rc-muted: #9ca3af;
+    --rc-border: #243041;
+    --rc-focus: #60a5fa;
+    --rc-primary: #e5e7eb;
+    --rc-primary-text: #0b0f1a;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  }
+}
+
+.registrer-content h2 {
+  margin: 0 0 4px 0;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: .2px;
+}
+
+/* ====== Formulario dentro de la sección ====== */
+.registrer-content .form-register {
+  display: grid;
+  gap: 12px;
+}
+
+/* Inputs y select, scoped */
+.registrer-content .input-text,
+.registrer-content .input-select {
+  width: 100%;
+  appearance: none;
+  background: var(--rc-bg);
+  color: var(--rc-text);
+  border: 1px solid var(--rc-border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 14px;
+  line-height: 1.4;
+  min-height: 40px;
+  transition: border-color .15s ease, box-shadow .15s ease, background .15s ease;
+}
+
+.registrer-content .input-text::placeholder {
+  color: var(--rc-muted);
+}
+
+.registrer-content .input-text:focus,
+.registrer-content .input-select:focus {
+  outline: none;
+  border-color: var(--rc-focus);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--rc-focus) 25%, transparent);
+}
+
+/* Botón submit, scoped */
+.registrer-content .btn-submit {
+  background: var(--rc-primary);
+  color: var(--rc-primary-text);
+  border: 1px solid var(--rc-primary);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: transform .05s ease, box-shadow .15s ease, background .15s ease;
+}
+
+.registrer-content .btn-submit:hover {
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+  background: color-mix(in srgb, var(--rc-primary) 92%, black 8%);
+}
+
+.registrer-content .btn-submit:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.registrer-content .btn-submit:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+}
+
+/* Mensaje de estado (el <p> que renderizas con {mensaje}) */
+.registrer-content > p {
+  margin: 4px 0 0 0;
+  font-size: 14px;
+  color: var(--rc-muted);
+  padding: 8px 10px;
+  border: 1px dashed var(--rc-border);
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--rc-bg) 92%, transparent);
+}
+
+/* Layout un poco más amplio en desktop */
+@media (min-width: 640px) {
+  .registrer-content .form-register {
+    grid-template-columns: 1fr 1fr;
+  }
+  /* Título y botón alineados */
+  .registrer-content h2,
+  .registrer-content > p,
+  .registrer-content .btn-submit {
+    grid-column: 1 / -1;
+  }
+}

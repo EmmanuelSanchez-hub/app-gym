@@ -1,0 +1,239 @@
+
+
+/* ======= CONTENEDOR PRINCIPAL DEL ÁREA ======= */
+.clientes-content {
+  padding: 24px;
+  background: #1a1f2b;                 /* panel oscuro como tu tema */
+  color: #e8eaf6;
+  border-left: 1px solid rgba(255,255,255,.06);
+  min-height: 100vh;
+}
+
+/* ======= TÍTULO ======= */
+.clientes-content .clientes-title {
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0 0 12px 0;
+  color: #fff;
+  letter-spacing: .3px;
+}
+
+/* ======= BOTÓN NUEVO CLIENTE ======= */
+.clientes-content .btn-nuevo {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  height: 40px;
+  padding: 0 14px;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 10px;
+  background: linear-gradient(135deg, #8b5cf6 0%, #1d9bf0 100%);
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: .2px;
+  cursor: pointer;
+  transition: transform .06s ease, filter .2s ease, box-shadow .2s ease;
+  box-shadow: 0 10px 20px rgba(29,155,240,.15);
+  margin: 6px 0 14px;
+}
+
+.clientes-content .btn-nuevo:hover {
+  filter: brightness(1.05);
+  box-shadow: 0 12px 26px rgba(29,155,240,.25);
+}
+.clientes-content .btn-nuevo:active {
+  transform: translateY(1px);
+}
+
+/* ======= BUSCADOR ======= */
+.clientes-content .input-filtro {
+  display: block;
+  width: min(680px, 100%);
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.09);
+  background: #0f1420;
+  color: #e8eaf6;
+  padding: 0 14px;
+  outline: none;
+  transition: border .2s, box-shadow .2s, background .2s;
+  margin: 8px 0 18px;
+}
+.clientes-content .input-filtro::placeholder {
+  color: #a5afc3;
+}
+.clientes-content .input-filtro:focus {
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 3px rgba(139,92,246,.18);
+  background: #0c111a;
+}
+
+
+
+/* ---------- FORM: CONTENEDOR ---------- */
+.form-cliente {
+  background: #1a1f2b;                    /* panel oscuro */
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: 16px;
+  padding: 18px;
+  color: #e8e8f0;
+  box-shadow: 0 10px 24px rgba(0,0,0,.25);
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr)); /* 5 columnas desktop */
+  gap: 12px;
+  margin: 14px 0 20px;
+}
+
+/* ---------- TÍTULO ---------- */
+.form-cliente .form-title {
+  grid-column: 1 / -1;
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: .2px;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+/* ---------- CAMPOS ---------- */
+.form-cliente .input-text,
+.form-cliente .input-select {
+  width: 100%;
+  height: 42px;
+  padding: 0 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.08);
+  background: #0f1420;                    /* fondo de inputs */
+  color: #e9ecf4;
+  outline: none;
+  transition: border .2s, box-shadow .2s, background .2s;
+}
+
+.form-cliente .input-text::placeholder {
+  color: #9aa3b2;
+}
+
+.form-cliente .input-text:focus,
+.form-cliente .input-select:focus {
+  border-color: #8b5cf6;                  /* violeta */
+  box-shadow: 0 0 0 2px rgba(139,92,246,.22);
+  background: #0c111a;
+}
+
+/* Orden natural en 1 columnas */
+.form-cliente .input-text:nth-of-type(1) { grid-column: span 1; } /* Nombre */
+.form-cliente .input-text[type="email"] { grid-column: span 1; }  /* Email */
+.form-cliente .input-text:nth-of-type(3) { grid-column: span 1; } /* Teléfono */
+.form-cliente .input-select                { grid-column: span 1; } /* Tipo doc */
+.form-cliente .input-text:nth-of-type(4) { grid-column: span 1; } /* Nº doc */
+
+/* ---------- BOTONES ---------- */
+.form-cliente .form-buttons {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 10px;
+  justify-content: flex-start;
+  margin-top: 4px;
+}
+
+.form-cliente .btn-submit,
+.form-cliente .btn-cancel {
+  height: 42px;
+  padding: 0 16px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  font-weight: 600;
+  letter-spacing: .2px;
+  cursor: pointer;
+  transition: transform .06s ease, background .2s, border-color .2s, box-shadow .2s;
+}
+
+.form-cliente .btn-submit {
+  background: #1d9bf0;                    /* azul primario (como tus botones) */
+  color: #fff;
+}
+.form-cliente .btn-submit:hover {
+  background: #198bd6;
+  box-shadow: 0 6px 18px rgba(29,155,240,.25);
+}
+.form-cliente .btn-submit:active { transform: translateY(1px); }
+
+.form-cliente .btn-cancel {
+  background: #232938;
+  color: #d6d8df;
+  border-color: rgba(255,255,255,.08);
+}
+.form-cliente .btn-cancel:hover {
+  background: #1f2533;
+  border-color: rgba(255,255,255,.16);
+}
+.form-cliente .btn-cancel:active { transform: translateY(1px); }
+
+/* ======= LISTA DE CARDS ======= */
+.clientes-content .clientes-lista {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(240px, 1fr));
+  gap: 18px;
+  padding-bottom: 40px;
+}
+
+/* ---------- RESPONSIVE ---------- */
+/* ≥ 1200px: 5 columnas (default) */
+
+@media (max-width: 1200px) {
+  .form-cliente {
+    grid-template-columns: repeat(3, minmax(0, 1fr)); /* 3 columnas */
+  }
+  /* Reacomodamos para 3 columnas */
+  .form-cliente .input-text:nth-of-type(1) { grid-column: span 1; }
+  .form-cliente .input-text[type="email"]  { grid-column: span 1; }
+  .form-cliente .input-text:nth-of-type(3) { grid-column: span 1; }
+  .form-cliente .input-select              { grid-column: span 1; }
+  .form-cliente .input-text:nth-of-type(4) { grid-column: span 2; }
+  .clientes-content .clientes-lista {
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .form-cliente {
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2 columnas */
+  }
+  /* En 2 columnas, nº doc ocupa 1 columna */
+  .form-cliente .input-text:nth-of-type(4) { grid-column: span 1; }
+}
+
+@media (max-width: 600px) {
+  .form-cliente {
+    grid-template-columns: 1fr;          /* 1 columna */
+    gap: 10px;
+  }
+  .form-cliente .form-title { margin-bottom: 2px; }
+  .form-cliente .form-buttons { justify-content: stretch; }
+  .form-cliente .btn-submit,
+  .form-cliente .btn-cancel { flex: 1; }
+  .clientes-content .clientes-lista {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- TOQUE NEÓN SUTIL EN BORDES (opcional) ---------- */
+.form-cliente {
+  position: relative;
+  overflow: hidden;
+}
+.form-cliente::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 16px;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(139,92,246,.35), rgba(29,155,240,.35));
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+}
+
+
