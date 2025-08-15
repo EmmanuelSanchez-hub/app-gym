@@ -12,10 +12,10 @@ import './App.css'
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/app">
       <Routes>
         {/* Rutas públicas */}
-        <Route path="/login" element={<Login />} />
+        <Route path="*" element={<Navigate to="/login" replace />} />
 
         {/* Solo el admin puede registrar */}
         <Route
