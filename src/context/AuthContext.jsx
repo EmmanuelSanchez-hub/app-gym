@@ -8,10 +8,9 @@ const AuthContext = createContext();
 
 // Proveedor del contexto
 export function AuthProvider({ children }) {
-  const [u, su] = useState(null);     // user
-  console.log("User ", u);
-  const [r, sr] = useState(null);     // role
-  const [l, sl] = useState(true);     // loading
+  const [u, su] = useState(null);
+  const [r, sr] = useState(null);
+  const [l, sl] = useState(true);
 
   useEffect(() => {
     const x = onAuthStateChanged(auth, async (au) => {
